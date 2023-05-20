@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://btqvo0b714npq"]
+
+[ext_resource type="Texture2D" uid="uid://dtuq2dl5qm7mv" path="res://textures/cookieAdded.png" id="1_8wlnj"]
+[ext_resource type="Script" path="res://Game/CookieAdded.gd" id="2_3yffj"]
+[ext_resource type="FontFile" uid="uid://dpa67ixbqnfi7" path="res://fonts/College Halo.ttf" id="2_m33yh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xmc88"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3t0xy"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ftmgj"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ParticuleCookieAdded" type="Node2D"]
+
+[node name="CookieAdded" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_xmc88")
+texture = ExtResource("1_8wlnj")
+one_shot = true
+fixed_fps = 60
+trail_lifetime = 1.0
+script = ExtResource("2_3yffj")
+
+[node name="AddedQuantity" type="GPUParticles2D" parent="CookieAdded"]
+position = Vector2(-49, -31)
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_3t0xy")
+texture = SubResource("ViewportTexture_ftmgj")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(119, 54)
+
+[node name="cookieAddRateLabel" type="RichTextLabel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_m33yh")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[p align=center] +1 [/p]"
+fit_content = true
+
+[connection signal="timeout" from="Timer" to="CookieAdded" method="_on_timer_timeout"]

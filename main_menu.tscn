@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://ig57w7wt3k77"]
+
+[ext_resource type="Shader" path="res://main_menu.gdshader" id="1_6hbm2"]
+[ext_resource type="Theme" uid="uid://baj3krsvlpyq4" path="res://theme_cookie/cookie_game.tres" id="1_absrq"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_et3vq"]
+[ext_resource type="Texture2D" uid="uid://pxhv2stjr4mp" path="res://textures/icons1Texture.png" id="4_4m13d"]
+[ext_resource type="Shader" path="res://icon_move.gdshader" id="4_drgpb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4rryc"]
+shader = ExtResource("1_6hbm2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4nb4"]
+shader = ExtResource("4_drgpb")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk2ow"]
+atlas = ExtResource("4_4m13d")
+region = Rect2(40, 776, 280, 200)
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_et3vq")
+
+[node name="Panel" type="Panel" parent="."]
+texture_repeat = 3
+material = SubResource("ShaderMaterial_4rryc")
+offset_right = 720.0
+offset_bottom = 1080.0
+theme = ExtResource("1_absrq")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+offset_right = 720.0
+offset_bottom = 1080.0
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="AspectRatioContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Title" type="Label" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme = ExtResource("1_absrq")
+text = "Cookie Clicker"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Icon" type="TextureRect" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_c4nb4")
+layout_mode = 2
+texture = SubResource("AtlasTexture_gk2ow")
+stretch_mode = 3
+
+[node name="New_Game" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_absrq")
+text = "Nueva Partida"
+
+[node name="Power_Up" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_absrq")
+text = "Power UP"
+
+[node name="Exit" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_absrq")
+text = "Salir"
+
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/New_Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="AspectRatioContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

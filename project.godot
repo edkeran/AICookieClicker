@@ -1,0 +1,56 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Ai_cookie_clicker"
+run/main_scene="res://main_menu.tscn"
+config/features=PackedStringArray("4.0", "Mobile")
+config/icon="res://textures/cookieAdded.png"
+
+[autoload]
+
+SCORE="*res://score.gd"
+STOREITEMS="*res://store_items.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=1080
+window/size/initial_position_type=0
+window/size/borderless=true
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/handheld/orientation=5
+mouse_cursor/custom_image="res://textures/pointer.png"
+window/icon="res://icon.svg"
+window/movie_file=""
+
+[dotnet]
+
+project/assembly_name="Ai_cookie_clicker"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/Equipo/Documents/ProjectsGodot/AI_game/GamePlay/recGame.avi"
+
+[input]
+
+ButtonClick={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_repeat=2
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxspyga4b5j7h"]
+
+[ext_resource type="Script" path="res://Game/InGameUI/ui_ingame.gd" id="1_qq7nd"]
+[ext_resource type="Texture2D" uid="uid://2svlblakkukd" path="res://textures/uiButtons/strore.png" id="1_wn4b3"]
+[ext_resource type="Texture2D" uid="uid://dnt3gw00kbh74" path="res://textures/uiButtons/gallery.png" id="2_l5gpw"]
+[ext_resource type="Texture2D" uid="uid://pxhv2stjr4mp" path="res://textures/icons1Texture.png" id="2_uwlfl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxwun"]
+atlas = ExtResource("2_uwlfl")
+region = Rect2(336, 496, 312, 280)
+
+[node name="UIIngame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(0.998197, 1)
+script = ExtResource("1_qq7nd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_top = 987.0
+offset_right = 717.0
+offset_bottom = 1081.0
+
+[node name="BoxHorizonOptions" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ReturnGame" type="Button" parent="MarginContainer/BoxHorizonOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = SubResource("AtlasTexture_yxwun")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Store" type="Button" parent="MarginContainer/BoxHorizonOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("1_wn4b3")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Gallery" type="Button" parent="MarginContainer/BoxHorizonOptions"]
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("2_l5gpw")
+icon_alignment = 1
+expand_icon = true
+
+[connection signal="pressed" from="MarginContainer/BoxHorizonOptions/ReturnGame" to="." method="_on_return_game_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxHorizonOptions/Store" to="." method="_on_store_pressed"]

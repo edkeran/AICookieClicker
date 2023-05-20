@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://qcs4terjr65p"]
+
+[ext_resource type="Script" path="res://Game/ParticleCookie.gd" id="1_0vvke"]
+[ext_resource type="Texture2D" uid="uid://b61cahrisrlle" path="res://textures/cookiePartParticle1.png" id="1_yqjvh"]
+
+[sub_resource type="Gradient" id="Gradient_wubdm"]
+offsets = PackedFloat32Array(0, 0.829384, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.798947, 0.392248, 0.312087, 1, 0.564381, 0.452153, 0.428893, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1qr6o"]
+gradient = SubResource("Gradient_wubdm")
+width = 100
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xpmj4"]
+lifetime_randomness = 0.58
+particle_flag_disable_z = true
+direction = Vector3(2, 0.6, 0)
+spread = 17.6
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 114.66
+initial_velocity_max = 250.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = -24.06
+linear_accel_max = 81.21
+tangential_accel_min = 9.02
+tangential_accel_max = 27.42
+angle_min = 21.7
+angle_max = 184.1
+scale_min = 0.2
+scale_max = 0.5
+color_ramp = SubResource("GradientTexture1D_1qr6o")
+
+[node name="Particles" type="Node2D"]
+script = ExtResource("1_0vvke")
+
+[node name="CookieParticleSimple" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_xpmj4")
+texture = ExtResource("1_yqjvh")
+lifetime = 1.4
+one_shot = true
+preprocess = 4.38
+speed_scale = 0.54
+explosiveness = 0.06
+randomness = 0.09
+fixed_fps = 60
+trail_lifetime = 0.2

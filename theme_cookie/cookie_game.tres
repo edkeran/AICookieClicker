@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://baj3krsvlpyq4"]
+
+[ext_resource type="FontFile" uid="uid://130j5bxxi0dw" path="res://fonts/Chuprassy.ttf" id="1_id625"]
+[ext_resource type="Texture2D" uid="uid://bmy5r6vuq2bcq" path="res://textures/TextureButton1.jpg" id="2_8gcyo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10ut1"]
+bg_color = Color(0.145098, 0.454902, 0.427451, 0.917647)
+border_width_bottom = 20
+border_color = Color(0.513726, 0.403922, 0, 0.713726)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj41h"]
+bg_color = Color(0.0666667, 0.647059, 0.901961, 0.52549)
+shadow_color = Color(0.796078, 0.470588, 0.623529, 1)
+shadow_size = 12
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xey4m"]
+texture = ExtResource("2_8gcyo")
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+
+[resource]
+Button/font_sizes/font_size = 55
+Button/fonts/font = ExtResource("1_id625")
+Button/styles/normal = SubResource("StyleBoxFlat_10ut1")
+Label/font_sizes/font_size = 68
+Label/fonts/font = ExtResource("1_id625")
+Label/styles/normal = SubResource("StyleBoxFlat_vj41h")
+MarginContainer/constants/margin_bottom = 0
+MarginContainer/constants/margin_left = 0
+MarginContainer/constants/margin_right = 0
+MarginContainer/constants/margin_top = 0
+Panel/styles/panel = SubResource("StyleBoxTexture_xey4m")
