@@ -8,15 +8,14 @@ var current_instance_store
 
 func _ready():
 	current_score_label = $MarginContainer/VBoxContainer/ScoreCurrent 
-	current_score_label.text = "[p align=center]"+str(SCORE.currentScore)+"[/p]"
+	current_score_label.text = "[p align=center]"+SCORE.format_score_output(SCORE.currentScore)+"[/p]"
 
 func load_new_score():
-	current_score_label.text = "[p align=center]"+str(SCORE.currentScore)+"[/p]"
+	current_score_label.text = "[p align=center]"+SCORE.format_score_output(SCORE.currentScore)+"[/p]"
 
 func load_cookies_per_seccond():
 	var cookies_per_seccond_label =  $MarginContainer/VBoxContainer/CookiesPerSecond
 	cookies_per_seccond_label.text = "Cookies " + SCORE.cookies_per_seccond() + "/s"
-	pass
 
 func add_store_node():
 	if(current_instance_store == null):
@@ -39,3 +38,4 @@ func _on_timer_cookie_generate_timeout():
 	SCORE.addAutoClickScore()
 	load_cookies_per_seccond()
 	load_new_score()
+

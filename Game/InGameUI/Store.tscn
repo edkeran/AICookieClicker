@@ -16,6 +16,11 @@ offset_bottom = 984.0
 theme_override_constants/margin_left = 35
 theme_override_constants/margin_top = 220
 theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 63
 
-[node name="VContainerStorePowerUp" type="VBoxContainer" parent="MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
 layout_mode = 2
+
+[node name="VContainerStorePowerUp" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

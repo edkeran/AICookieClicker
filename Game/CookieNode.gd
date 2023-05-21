@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var sound_effect: AudioStreamPlayer = null
 var tween : Tween
-var particleCookieClick = load("res://Game/particule_cookie_added.tscn")
+var particleCookieClick = preload("res://Game/particule_cookie_added.tscn")
 var isPhoneOS : bool = false
 
 func _ready():

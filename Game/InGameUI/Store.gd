@@ -24,17 +24,17 @@ func load_store_items():
 			buttonCurrent.connect("pressed", Callable(buttonCurrent, "button_pressed"))
 			buttonCurrent.connect("button_store_click", Callable(self, "handle_buy_power_up"))
 			create_hbox_container(buttonCurrent, itemStore[2])
-			$MarginContainer/VContainerStorePowerUp.add_child(buttonCurrent)
+			$MarginContainer/ScrollContainer/VContainerStorePowerUp.add_child(buttonCurrent)
 
 func clear_store_items():
-	for btn in $MarginContainer/VContainerStorePowerUp.get_children():
+	for btn in $MarginContainer/ScrollContainer/VContainerStorePowerUp.get_children():
 		btn.queue_free()
 
 func create_hbox_container(buttonItm : Button, cost : int):
 	var containerForButton : HBoxContainer = HBoxContainer.new()
 	containerForButton.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	var labelCost = Label.new()
-	labelCost.text = str(cost) + " COOKIES "
+	labelCost.text =  SCORE.format_score_output(cost) + " COOKIES "
 	containerForButton.size.x = buttonItm.size.x
 	containerForButton.size.y += heightStoreItem
 	buttonItm.add_child(containerForButton) 
