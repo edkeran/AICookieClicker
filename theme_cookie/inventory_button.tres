@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://umwkcf5ym8wc"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://umwkcf5ym8wc"]
+
+[ext_resource type="FontFile" uid="uid://dpa67ixbqnfi7" path="res://fonts/College Halo.ttf" id="1_t00jb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2di44"]
 bg_color = Color(0.184314, 0.184314, 0.184314, 0.745098)
@@ -41,6 +43,7 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 
 [resource]
+Button/fonts/font = ExtResource("1_t00jb")
 Button/styles/disabled = null
 Button/styles/focus = SubResource("StyleBoxFlat_2di44")
 Button/styles/hover = SubResource("StyleBoxFlat_6mcdc")

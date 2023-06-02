@@ -31,4 +31,5 @@ var listStoreItems : Array = [
 		["res://textures/storeItemsIcons/pointerStoreRate.jpg", "X3 Clicks Por Segundo",100000, true, 3, ALL_CLICK],
 		["res://textures/storeItemsIcons/cookieArtist.jpg", "+1 Artesanos de las galletas (+600)", 110000, true, 600, ADD_AUTOCLICK],
 		["res://textures/storeItemsIcons/cookieLab.jpg", "+1 Laboratorio de galletas (+1000)", 115000, true, 600, ADD_AUTOCLICK],
+		["res://textures/storeItemsIcons/cookieFactory.jpg", "+1 Fabrica de galletas (+1000)", 250000, true, 800, ADD_AUTOCLICK],
 	]

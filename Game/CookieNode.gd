@@ -46,6 +46,12 @@ func _on_ui_ingame_unable_cookie():
 	self.get_parent().current_instance_store.connect("change_auto_click_rate", Callable(self.get_parent(), "change_autoclick_rate"))
 	$ShapeCookie.disabled = true
 
+func _on_ui_ingame_unable_cookie_gallery():
+	self.get_parent().add_galley_store_node()
+	$ShapeCookie.disabled = true
+
 func _on_ui_ingame_able_cookie():
 	self.get_parent().remove_current_option_node()
 	$ShapeCookie.disabled = false
+
+

@@ -47,3 +47,4 @@ expand_icon = true
 
 [connection signal="pressed" from="MarginContainer/BoxHorizonOptions/ReturnGame" to="." method="_on_return_game_pressed"]
 [connection signal="pressed" from="MarginContainer/BoxHorizonOptions/Store" to="." method="_on_store_pressed"]
+[connection signal="pressed" from="MarginContainer/BoxHorizonOptions/Gallery" to="." method="_on_gallery_pressed"]

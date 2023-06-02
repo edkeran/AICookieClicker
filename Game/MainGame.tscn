@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brokq15u7sbag"]
+[gd_scene load_steps=11 format=3 uid="uid://fpneqnkod0uf"]
 
 [ext_resource type="Texture2D" uid="uid://c376c3m7nuh8w" path="res://textures/backgroundMain.jpg" id="1_0wrwp"]
 [ext_resource type="Script" path="res://Game/MainGame.gd" id="1_tdm0f"]
@@ -91,4 +91,5 @@ autostart = true
 [connection signal="input_event" from="CookieNode" to="CookieNode" method="_on_input_event"]
 [connection signal="able_cookie" from="UIIngame" to="CookieNode" method="_on_ui_ingame_able_cookie"]
 [connection signal="unable_cookie" from="UIIngame" to="CookieNode" method="_on_ui_ingame_unable_cookie"]
+[connection signal="unable_cookie_gallery" from="UIIngame" to="CookieNode" method="_on_ui_ingame_unable_cookie_gallery"]
 [connection signal="timeout" from="TimerCookieGenerate" to="." method="_on_timer_cookie_generate_timeout"]

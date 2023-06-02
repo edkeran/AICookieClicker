@@ -19,6 +19,7 @@ config/icon="res://textures/cookieAdded.png"
 
 SCORE="*res://score.gd"
 STOREITEMS="*res://store_items.gd"
+GALLERYSTORE="*res://gallery_store_items.gd"
 
 [display]
 
@@ -29,7 +30,6 @@ window/size/borderless=true
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 window/handheld/orientation=5
-mouse_cursor/custom_image="res://textures/pointer.png"
 window/icon="res://icon.svg"
 window/movie_file=""
 

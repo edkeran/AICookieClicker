@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7ja7gcsl2cid"]
+
+[ext_resource type="FontFile" uid="uid://dpa67ixbqnfi7" path="res://fonts/College Halo.ttf" id="1_rdsku"]
+
+[node name="CookieAddedLabel" type="SubViewport"]
+transparent_bg = true
+size = Vector2i(119, 54)
+
+[node name="cookieAddRateLabel" type="RichTextLabel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_rdsku")
+theme_override_font_sizes/normal_font_size = 65
+bbcode_enabled = true
+text = "[p align=center] +1 [/p]"
+fit_content = true

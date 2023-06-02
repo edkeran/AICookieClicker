@@ -3,6 +3,8 @@ extends Control
 
 signal unable_cookie
 signal able_cookie
+signal unable_cookie_gallery
+
 var current_mode
 
 func _on_store_pressed():
@@ -20,4 +22,8 @@ func add_ui_button_clicked_sound():
 	soundInstance.stream = load("res://sound/FX/UIGameSelected.ogg")
 	add_child(soundInstance)
 	soundInstance.play()
+
+func _on_gallery_pressed():
+	emit_signal("unable_cookie_gallery")
+	add_ui_button_clicked_sound()
 
