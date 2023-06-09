@@ -67,12 +67,14 @@ func _on_next_pressed():
 	currentImageIterator+=1
 	if(currentImageIterator >= GALLERYSTORE.listGalleryItems.size()):
 		currentImageIterator = 0
+	add_generic_sound("res://sound/FX/toggle_002.ogg")
 	update_picture()
 
 func _on_prev_pressed():
 	currentImageIterator-=1
 	if(currentImageIterator < 0):
 		currentImageIterator = GALLERYSTORE.listGalleryItems.size() - 1
+	add_generic_sound("res://sound/FX/toggle_001.ogg")
 	update_picture()
 
 func update_picture():
@@ -88,23 +90,18 @@ func handle_buy_gallery_store(buttonClicked : Button):
 		if(!buttonInfo[indexBtn][3]):
 			buttonClicked.queue_free()
 			buttonInfo[indexBtn][3] = true
-			add_success_sound()
+			add_generic_sound("res://sound/FX/ItemConfirmed.ogg")
 		else:
-			add_failed_sound()
+			add_generic_sound("res://sound/FX/button_pressed_failed.wav")
 	else:
-		add_failed_sound()
+		add_generic_sound("res://sound/FX/button_pressed_failed.wav")
 
-func add_success_sound():
+func add_generic_sound(ruteSound):
 	var soundInstance = AudioStreamPlayer.new()
-	soundInstance.stream = load("res://sound/FX/ItemConfirmed.ogg")
-	add_child(soundInstance)
-	soundInstance.play()
-	
-func add_failed_sound():
-	var soundInstance = AudioStreamPlayer.new()
-	soundInstance.stream = load("res://sound/FX/button_pressed_failed.wav")
+	soundInstance.stream = load(ruteSound)
 	add_child(soundInstance)
 	soundInstance.play()
 
 func _on_button_pressed():
+	add_generic_sound("res://sound/FX/toggle_001.ogg")
 	close_gallery()
