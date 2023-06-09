@@ -49,6 +49,8 @@ func handle_buy_power_up(buttonClicked : Button):
 				handle_autoclick_added(buttonInfo)
 			STOREITEMS.ALL_CLICK:
 				handle_autoclick_change_rate(buttonInfo)
+	else:
+		add_failed_sound()
 
 func handle_autoclick_added(buttonInfo):
 	SCORE.currentScore-= buttonInfo[2]
@@ -69,5 +71,11 @@ func handle_autoclick_change_rate(buttonInfo):
 func add_ui_powerUp_clicked_sound():
 	var soundInstance = AudioStreamPlayer.new()
 	soundInstance.stream = load("res://sound/FX/ItemConfirmed.ogg")
+	add_child(soundInstance)
+	soundInstance.play()
+	
+func add_failed_sound():
+	var soundInstance = AudioStreamPlayer.new()
+	soundInstance.stream = load("res://sound/FX/button_pressed_failed.wav")
 	add_child(soundInstance)
 	soundInstance.play()

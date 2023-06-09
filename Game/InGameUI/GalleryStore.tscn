@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Game/InGameUI/GalleryStore.gd" id="1_33bbh"]
 [ext_resource type="FontFile" uid="uid://130j5bxxi0dw" path="res://fonts/Chuprassy.ttf" id="2_32axe"]
 [ext_resource type="Texture2D" uid="uid://c0griyh26ti7k" path="res://textures/PointingHands/left.jpg" id="3_e70uk"]
-[ext_resource type="Texture2D" uid="uid://dj2dm4ha7x7to" path="res://textures/Gallery/cookieArtist.jpg" id="4_dmw7h"]
+[ext_resource type="Texture2D" uid="uid://wd6bkoiiuw2i" path="res://textures/Gallery/TBD.jpg" id="4_aqths"]
 [ext_resource type="Texture2D" uid="uid://c2mlacjpg85ca" path="res://textures/PointingHands/returnGallery.png" id="5_ad2lv"]
 [ext_resource type="Texture2D" uid="uid://bllvkuitq6ywl" path="res://textures/PointingHands/rigth.jpg" id="5_kbi1q"]
 
@@ -61,7 +61,7 @@ expand_icon = true
 [node name="currentPicture" type="TextureRect" parent="GalleryImagesContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("4_dmw7h")
+texture = ExtResource("4_aqths")
 expand_mode = 1
 stretch_mode = 5
 
@@ -83,4 +83,5 @@ icon_alignment = 1
 expand_icon = true
 
 [connection signal="pressed" from="GalleryImagesContainer/HBoxContainer/Prev" to="." method="_on_prev_pressed"]
+[connection signal="pressed" from="GalleryImagesContainer/HBoxContainer/currentPicture/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="GalleryImagesContainer/HBoxContainer/Next" to="." method="_on_next_pressed"]

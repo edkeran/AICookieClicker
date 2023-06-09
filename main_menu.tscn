@@ -44,7 +44,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 size_flags_vertical = 6
 theme = ExtResource("1_absrq")
-text = "Cookie Clicker"
+text = "Finite Cookie Clicker"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -59,12 +59,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("1_absrq")
 text = "Nueva Partida"
-
-[node name="Power_Up" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme = ExtResource("1_absrq")
-text = "Power UP"
 
 [node name="Exit" type="Button" parent="AspectRatioContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

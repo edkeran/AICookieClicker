@@ -17,8 +17,8 @@ func _ready():
 		var scriptPath = "res://Game/button_store.gd"
 		buttonCurrent.set_script(load(scriptPath))
 		buttonCurrent.custom_minimum_size = Vector2(0,heightStoreItem)
-		#buttonCurrent.connect("pressed", Callable(buttonCurrent, "button_pressed"))
-		#buttonCurrent.connect("button_store_click", Callable(self, "handle_buy_power_up"))
+		buttonCurrent.connect("pressed", Callable(buttonCurrent, "button_pressed"))
+		buttonCurrent.connect("button_store_click", Callable(self, "handle_buy_gallery_store"))
 		create_hbox_container(buttonCurrent, imgGallery[2], imgGallery[3])
 		$StoreItemsContainer/ScrollContainer/MarginContainer/VBoxContainer.add_child(buttonCurrent)
 	$StoreItemsContainer/ScrollContainer/MarginContainer/VBoxContainer.add_child(button_see_all_gallery())
@@ -29,7 +29,7 @@ func create_hbox_container(buttonItm : Button, cost : int, isBought : bool):
 	containerForButton.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	var labelCost = Label.new()
 	if(not isBought):
-		labelCost.text =  SCORE.format_score_output(cost) + " COOKIES "
+		labelCost.text = SCORE.format_score_output(cost) + " COOKIES "
 	else:
 		labelCost.text = "Ver";
 	containerForButton.size.x = buttonItm.size.x
@@ -50,8 +50,14 @@ func button_see_all_gallery():
 	return btnSeeAll
 
 func set_gallery_visible():
+	update_picture()
 	$StoreItemsContainer.visible = false
 	$GalleryImagesContainer.visible = true
+	var soundInstance = AudioStreamPlayer.new()
+	soundInstance.stream = load("res://sound/FX/open_002.ogg")
+	add_child(soundInstance)
+	soundInstance.play()
+	
 	
 func close_gallery():
 	$StoreItemsContainer.visible = true
@@ -70,4 +76,35 @@ func _on_prev_pressed():
 	update_picture()
 
 func update_picture():
-	$GalleryImagesContainer/HBoxContainer/currentPicture.texture = load(GALLERYSTORE.listGalleryItems[currentImageIterator][0])
+	if(GALLERYSTORE.listGalleryItems[currentImageIterator][3]):
+		$GalleryImagesContainer/HBoxContainer/currentPicture.texture = load(GALLERYSTORE.listGalleryItems[currentImageIterator][0])
+	else:
+		$GalleryImagesContainer/HBoxContainer/currentPicture.texture = load("res://textures/Gallery/TBD.jpg")
+	
+func handle_buy_gallery_store(buttonClicked : Button):
+	var indexBtn : int = int(buttonClicked.get_meta("indexGalleryItem"))
+	var buttonInfo = GALLERYSTORE.listGalleryItems
+	if(SCORE.currentScore >= buttonInfo[indexBtn][2]):
+		if(!buttonInfo[indexBtn][3]):
+			buttonClicked.queue_free()
+			buttonInfo[indexBtn][3] = true
+			add_success_sound()
+		else:
+			add_failed_sound()
+	else:
+		add_failed_sound()
+
+func add_success_sound():
+	var soundInstance = AudioStreamPlayer.new()
+	soundInstance.stream = load("res://sound/FX/ItemConfirmed.ogg")
+	add_child(soundInstance)
+	soundInstance.play()
+	
+func add_failed_sound():
+	var soundInstance = AudioStreamPlayer.new()
+	soundInstance.stream = load("res://sound/FX/button_pressed_failed.wav")
+	add_child(soundInstance)
+	soundInstance.play()
+
+func _on_button_pressed():
+	close_gallery()
